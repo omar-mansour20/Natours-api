@@ -11,7 +11,6 @@ const globalErrorHandeler = require('./controllers/errorController');
 const tourRouter = require('./routes/tourRouter');
 const userRouter = require('./routes/userRouter');
 const reviewRouter = require('./routes/reviewRouter');
-const bookingRouter = require('./routes/bookingRouter');
 
 const app = express();
 
@@ -58,7 +57,6 @@ app.use('/api', limiter);
 app.use('/api/v1/tours', tourRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/reviews', reviewRouter);
-app.use('/api/v1/bookings', bookingRouter);
 
 // any other url
 app.all('*', (req, res, next) => {
