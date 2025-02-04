@@ -1,0 +1,98 @@
+Intro & Behind the scenes 
+    NOTE 
+        => These are the main topics to understand node and how it acually works without express , nest 
+        => Express will make these topics more upstract for u 
+
+    Node.JS ?
+        - A JS RUNTIME (not a framework) BUILT ON GOOGLE’S OPEN-SOURCE V8 JAVASCRIPT ENGINE
+        - Written in c++ and js 
+        - Can execute js code outside the browser
+        - libuv -> open source library that gives node js access to os , fs , networking and more
+        - libuv also responsible for event loop and thread pool 
+
+    Event loop 
+        - Does orchestration
+        - Node.js is built around callback functions 
+        so -> event loop is responsible for all the code inside callback functions
+        - Has multiple phases , each phase has a callback queue
+        - Most imp phases:
+            -> Initialze program 
+            -> Execute "top level code" 
+            -> Require modules 
+            -> Register event callbacks 
+            -> Start event loop
+        - After all phases are done -> one tick is done (iteration)
+        - Then node decides to keep looping or to exit the event loop  
+
+    Thread pool 
+        - Gives the thread additional 4 threads 
+        - Offloading work from the event loop 
+        - Handels heavy work from 
+
+    Streams 
+        - Used to process (read and write) data piece by piece (chunks)
+        - Without completing the whole operation    
+        - Perfect for handling large volumes of data
+        Types 
+            - Radable (EX: req)-> read() , pipe()
+            - Writable (EX: res)-> write() , end()
+            - Duplex 
+            - Transform 
+
+    Modules 
+        - Each JavaScript file is treated as a separate module
+        - Node.js uses require(), exports or module.exports;
+        Types(That u require)
+            - Core modules 
+            - Developer modules
+            - 3rd-party modules (npm)
+
+          
+Express
+    - Express is a minimal node.js framework
+    - Provides a higher level of abstraction
+    - Features :
+        - complex routing
+        - easier handling of requests and responses
+        - middleware and server-side rendering
+
+    Requet-Respose cycle
+        - Every thing is a middleware (even routers)
+        - In MIDDLEWARE STACK There are several middlewares 
+        - The middlewares are executed in the order written in the code 
+        - The "(req,res)" objects go through all the middlewares where they are processed
+        - At the end of every middleware a "next()" is called to execute the next middleware 
+        - The last middleware sends the response  
+        - Add a middleware using "app.use()"
+        
+
+APIs
+    - A piece of software can be used by another software, to allow applications to talk to each other
+    
+    Rest Architecture 
+        - Separate API into logical resources
+        - Endpoints should contain only resources (nouns), use HTTP methods for actions
+        - Make the URLs resource-based
+        -  Use HTTP methods (get - post...)
+        - Send data as JSON objects
+        - Make sure the API is stateless (All state is handled on the client)
+        - Server should never depend on previous requests
+           
+
+Mongo DB
+    - A document database 
+    - Stores data in documents
+    - Free and open-source
+    Documents 
+        - Each document can have different number and type of fields
+        - MongoDB uses BSON for data storage (Exactly like Json but typed)
+        - Allows Embedding/Denormalizing
+    
+    Mongoose 
+        => we can say Mongoose to MongoDB is like express to NodeJs
+        - An Object Data Modeling (ODM) library for MongoDB and Node.js
+        - Provides a higher level of abstraction, rapid and simple development of mongoDB database interactions
+        Mongoose schema: 
+            where we model our data, by describing the structure of the data, default values, and validation
+        Mongoose model:
+            A wrapper for the schema, providing an interface to the database for CRUD operations.
