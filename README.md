@@ -35,7 +35,13 @@ npm install
 
 ## 🎮 API Endpoints
 
-##👤 Authentication
+  ##👤 Authentication
+
+  . POST /api/v1/users/signup - Register new user
+  . POST /api/v1/users/login - Login user
+  . POST /api/v1/users/forgotPassword - Request password reset
+  . PATCH /api/v1/users/resetPassword/:token - Reset password
+  . PATCH /api/v1/users/updateMyPassword - Update password (authenticated)
 
 
 
