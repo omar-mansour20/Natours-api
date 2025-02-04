@@ -34,6 +34,7 @@ npm install
 3. Create config.env in the root directory with the environment variables
 
 ## 🎮 API Endpoints
+
 ##👤 Authentication
 
 
